@@ -28,7 +28,8 @@ Este proyecto ha sido creado como práctica de programación y ha sido trabajado
 ---
 
 ## 🚀 Mejoras futuras
-- 💰 Calculo de beneficio por jugador desde la compra.
+- 💰 Calculo de beneficio por jugador desde la compra. ✅
 - 🔎 Filtros avanzados en la búsqueda de jugadores.
-- ❓  Probabilidad de los jugadores de estar en el once incial.
+- ❓  Probabilidad de los jugadores de estar en el once incial. ✅
+- 🌍 Gestionar el programa en diferentes apps fantasy. 
 - 🎨 Interfaz gráfica para una experiencia más intuitiva.   

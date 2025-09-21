@@ -31,10 +31,26 @@ def ver_equipo():
                 else:
                     df["Hoy"] = (df["Hoy"].astype(str).str.replace(".", "").str.replace("+", "").astype(int))
                     df = df.sort_values(by="Hoy", ascending=False)
+                    ganancia=0
+                    for jugador in df["Hoy"]:
+                        ganancia+=jugador
                     df["Hoy"] = df["Hoy"].apply(lambda x: f"{x:+,}".replace(",", "."))
                     df = df.reset_index(drop=True)
                     df.index = df.index + 1
-                    print(df)
+                    
+
+                    df["vInicial"] = (df["vInicial"].astype(str).str.replace(".", "").str.replace("+", "").astype(int))
+                    df["Valor"] = (df["Valor"].astype(str).str.replace(".", "").str.replace("+", "").astype(int))
+                    df["Beneficio"] = df["Valor"] - df["vInicial"]
+
+                    df["Beneficio"] = df["Beneficio"].apply(lambda x: f"{x:+,}".replace(",", "."))
+                    df["Valor"] = df["Valor"].apply(lambda x: f"{x:+,}".replace(",", "."))
+                    df["vInicial"] = df["vInicial"].apply(lambda x: f"{x:+,}".replace(",", "."))
+                    print(df[["Nombre", "Valor", "Hoy", "Beneficio", "Titularidad"]].to_string(index=True))
+                    df.to_csv(ruta, index=False, encoding="utf-8-sig")
+                    
+                    ganancia = f"{ganancia:+,}".replace(",", ".")
+                    print(f"\nHoy este equipo ha generado {ganancia}")
                 input("Presione la tecla enter para continuar")
                 break
             else:
